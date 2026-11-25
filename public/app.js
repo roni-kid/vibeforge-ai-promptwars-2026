@@ -14,6 +14,13 @@ const state = {
   geminiApiKey: sessionStorage.getItem('vf_gemini_key') || ''
 };
 
+function escapeHtml(str = '') {
+  return String(str)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;');
+}
+
 // Utility fetch wrapper
 async function apiCall(path, method = 'GET', body = null) {
   const headers = { 'Content-Type': 'application/json' };
@@ -154,7 +161,7 @@ async function runStudioCompile() {
   document.getElementById('compiledTokenMeta').textContent = `${data.after.tokens} tokens · ~${estMs}ms est. (Gemini 2.5 Flash)`;
 
   document.getElementById('archNotesContainer').innerHTML = (data.architecturalNotes || [])
-    .map((note) => `<span class="arch-note-chip">✓ ${note}</span>`)
+    .map((note) => `<span class="arch-note-chip">✓ ${escapeHtml(note)}</span>`)
     .join('');
 
   renderRadarChart(data.before.axes, data.after.axes);
