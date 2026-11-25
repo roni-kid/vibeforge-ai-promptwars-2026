@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VibeForge AI — PromptWars x Echo Engineer's AI VIBEATHON 2026</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <!-- TOP TELEMETRY HEADER -->
+  <header class="topbar">
+    <div class="topbar-brand">
+      <div class="brand-logo" aria-hidden="true">
+        <svg width="28" height="28" viewBox="0 0 32 32" fill="none">
+          <rect x="2" y="2" width="28" height="28" rx="8" stroke="url(#vfGrad)" stroke-width="2.5"/>
+          <path d="M9 11L16 23L23 11" stroke="#38BDF8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="16" cy="11" r="2.5" fill="#A855F7"/>
+          <defs>
+            <linearGradient id="vfGrad" x1="2" y1="2" x2="30" y2="30" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#38BDF8"/>
+              <stop offset="1" stop-color="#A855F7"/>
+            </linearGradient>
+          </defs>
+        </svg>
+      </div>
+      <div>
+        <div class="brand-title-row">
+          <span class="brand-name">VibeForge AI</span>
+          <span class="event-pill">PromptWars × Echo Engineers AI VIBEATHON 2026</span>
+        </div>
+        <p class="brand-subtitle">Autonomous Multi-Agent Prompt Compiler, 12-Vector Red-Team Shield &amp; Rapid Solution Studio — <em>"Think. Prompt. Build. Innovate."</em></p>
+      </div>
+    </div>
+
+    <div class="topbar-actions">
+      <div class="engine-status-pill" id="engineStatusPill" title="Dual-Engine Runtime: Deterministic Edge + Optional Live Google Gemini 2.5 Flash">
+        <span class="status-dot"></span>
+        <span id="engineModeLabel">Edge Engine Ready (0ms)</span>
+      </div>
+      <button class="btn btn-ghost btn-sm" id="btnOpenGeminiModal" type="button">
+        <span>🔑 Gemini API Key</span>
+      </button>
+      <button class="btn btn-ghost btn-sm" id="btnToggleTheme" type="button" aria-label="Toggle color theme">
+        <span id="themeIcon">☀️ Light</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- PRIMARY NAVIGATION TABS ("THINK. PROMPT. BUILD. INNOVATE.") -->
+  <nav class="main-nav" aria-label="VibeForge Workspaces">
+    <div class="nav-tabs">
+      <button class="nav-tab active" data-tab="studio" type="button">
+        <span class="tab-step">01 THINK &amp; PROMPT</span>
+        <span class="tab-name">CRISP-AGEN Prompt Studio</span>
+      </button>
+      <button class="nav-tab" data-tab="pipeline" type="button">
+        <span class="tab-step">02 BUILD &amp; DEFEND</span>
+        <span class="tab-name">4-Agent Pipeline &amp; Red-Team Shield</span>
+      </button>
+      <button class="nav-tab" data-tab="arena" type="button">
+        <span class="tab-step">03 PROMPTWARS ARENA</span>
+        <span class="tab-name">A/B Prompt Battle &amp; Leaderboard</span>
+      </button>
+      <button class="nav-tab" data-tab="finale" type="button">
+        <span class="tab-step">04 INNOVATE (8-HR SOLVER)</span>
+        <span class="tab-name">Surprise Problem Architect</span>
+      </button>
+    </div>
+
+    <div class="vertical-selector-bar">
+      <span class="vertical-bar-label">Load Flagship Industry Track:</span>
+      <div class="vertical-pills" id="verticalPillsContainer"></div>
+    </div>
+  </nav>
+
+  <!-- MAIN WORKSPACE CONTAINER -->
+  <main class="workspace">
+
+    <!-- =======================================================================
+         TAB 1: THINK & PROMPT — CRISP-AGEN PROMPT STUDIO & 6-AXIS TELEMETRY
+         ======================================================================= -->
+    <section class="tab-panel active" id="tab-studio">
+      <div class="grid-2col">
+        <!-- LEFT COLUMN: Draft Input & Compiler Controls -->
+        <div class="card">
+          <div class="card-header">
+            <div>
+              <span class="eyebrow">STAGE 1 · INTENT &amp; DRAFT</span>
+              <h2>Raw Prompt / Challenge Input</h2>
+            </div>
+            <span class="badge badge-info" id="activeDomainBadge">Track: FraudShield India</span>
+          </div>
+
+          <div class="form-group">
+            <label for="studioRawPrompt">Draft Prompt or Problem Intent</label>
+            <textarea id="studioRawPrompt" rows="5" placeholder="Enter your zero-shot prompt, task instruction, or problem statement..."></textarea>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="studioDomainSelect">Target Industry Domain</label>
+              <select id="studioDomainSelect">
+                <option value="fraud_shield">FraudShield India (FinTech &amp; UPI Security)</option>
+                <option value="healthcare">MedTriage Copilot (Clinical Healthcare AI)</option>
+                <option value="agritech">KisanVibe Intelligence (AgriTech &amp; Mandi Arbitrage)</option>
+                <option value="edtech">CampusPulse Socratic (EdTech &amp; Code Mentor)</option>
+                <option value="vibecoder">VibeCoder Architect (Google Antigravity Sprint)</option>
+                <option value="general">General Enterprise Agentic Workflow</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="studioStrategySelect">Compilation Strategy</label>
+              <select id="studioStrategySelect">
+                <option value="crisp_agen">CRISP-AGEN 6-Layer Enterprise Spec</option>
+                <option value="dspy_fewshot">DSPy-Style Signature &amp; Few-Shot Compiler</option>
+                <option value="cot_verifier">3-Pass Self-Critique &amp; CoT Verifier</option>
+                <option value="vibecode_architect">Google Antigravity Multi-Agent Blueprint</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="button-row">
+            <button class="btn btn-primary" id="btnCompilePrompt" type="button">
+              ⚡ Auto-Compile Master Prompt
+            </button>
+            <button class="btn btn-secondary" id="btnAnalyzeOnly" type="button">
+              🔍 Score Draft Telemetry
+            </button>
+            <button class="btn btn-accent" id="btnSendToPipeline" type="button">
+              🚀 Execute in 4-Agent Pipeline →
+            </button>
+          </div>
+
+          <!-- 6-Axis Radar & Before/After Delta Card -->
+          <div class="telemetry-summary-box" id="studioTelemetryBox">
+            <div class="pqi-comparison">
+              <div class="pqi-score-card">
+                <span class="pqi-label">Draft PQI</span>
+                <div class="pqi-value" id="pqiBeforeValue">--</div>
+                <span class="pqi-grade" id="pqiBeforeGrade">Grade -</span>
+              </div>
+              <div class="pqi-arrow">
+                <span class="delta-badge" id="pqiDeltaBadge">+0 pts</span>
+                <svg width="32" height="16" viewBox="0 0 32 16" fill="none">
+                  <path d="M2 8H28M28 8L22 2M28 8L22 14" stroke="#38BDF8" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              <div class="pqi-score-card highlighted">
+                <span class="pqi-label">Compiled PQI</span>
+                <div class="pqi-value" id="pqiAfterValue">--</div>
+                <span class="pqi-grade" id="pqiAfterGrade">Grade -</span>
+              </div>
+            </div>
+
+            <div class="radar-and-bars">
+              <div class="radar-chart-wrap">
+                <svg id="radarSvg" viewBox="0 0 240 240" width="210" height="210" aria-label="6-Axis Prompt Quality Radar"></svg>
+              </div>
+              <div class="axis-bars-list" id="axisBarsContainer"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- RIGHT COLUMN: Compiled CRISP-AGEN Prompt & Diagnostic Findings -->
+        <div class="card">
+          <div class="card-header">
+            <div>
+              <span class="eyebrow">STAGE 2 · COMPILED PRODUCTION ARTIFACT</span>
+              <h2 id="compiledStrategyHeading">CRISP-AGEN Master Specification</h2>
+            </div>
+            <div class="button-row-compact">
+              <button class="btn btn-ghost btn-sm" id="btnCopyCompiled" type="button">📋 Copy Spec</button>
+              <button class="btn btn-ghost btn-sm" id="btnDownloadCompiled" type="button">⬇️ Export .MD</button>
+            </div>
+          </div>
+
+          <div class="arch-notes-list" id="archNotesContainer"></div>
+
+          <div class="form-group">
+            <div class="label-with-meta">
+              <label for="studioCompiledOutput">Hardened XML / JSON Schema System Prompt</label>
+              <span class="token-meta" id="compiledTokenMeta">0 tokens · ~0ms est.</span>
+            </div>
+            <textarea id="studioCompiledOutput" class="code-textarea" rows="15" readonly></textarea>
+          </div>
+
+          <div class="diagnostics-section">
+            <h3>Diagnostic Telemetry &amp; Structural Checklist</h3>
+            <div class="diagnostics-grid" id="diagnosticsContainer"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         TAB 2: BUILD & DEFEND — 4-AGENT PIPELINE & 12-VECTOR RED-TEAM SHIELD
+         ======================================================================= -->
+    <section class="tab-panel" id="tab-pipeline">
+      <!-- 4-Agent Visual DAG Banner -->
+      <div class="card dag-card">
+        <div class="card-header">
+          <div>
+            <span class="eyebrow">AUTONOMOUS MULTI-AGENT ORCHESTRATION</span>
+            <h2>4-Agent Execution DAG &amp; Real-Time Telemetry Trace</h2>
+          </div>
+          <div class="button-row-compact">
+            <span class="badge badge-success" id="pipelineTotalLatencyBadge">Total Latency: -- ms</span>
+            <button class="btn btn-primary" id="btnRunPipelineNow" type="button">▶️ Run 4-Agent Pipeline</button>
+          </div>
+        </div>
+
+        <div class="agent-dag-grid" id="agentDagContainer">
+          <!-- Populated dynamically by app.js -->
+        </div>
+      </div>
+
+      <div class="grid-2col">
+        <!-- LEFT: Untrusted User/Transaction Payload & Synthesized Solution -->
+        <div class="card">
+          <div class="card-header">
+            <div>
+              <span class="eyebrow">LIVE EXECUTION SANDBOX</span>
+              <h2>Untrusted Input Payload &amp; Verified Agent Output</h2>
+            </div>
+            <span class="badge badge-warning" id="payloadVerdictBadge">Threat Check: --</span>
+          </div>
+
+          <div class="form-group">
+            <label for="pipelineUserPayload">Untrusted User / Transaction / Clinical / Sensor Payload (<code>&lt;user_input&gt;</code>)</label>
+            <textarea id="pipelineUserPayload" rows="4" placeholder="Paste untrusted user message, UPI scam alert, clinical intake note, or adversarial payload..."></textarea>
+          </div>
+
+          <div class="preset-attacks-bar">
+            <span class="preset-label">Inject Test Payload:</span>
+            <button class="btn btn-ghost btn-xs" data-inject="upi" type="button">🚨 UPI Collect + Injection Scam</button>
+            <button class="btn btn-ghost btn-xs" data-inject="clinical" type="button">🏥 Acute Chest Pain Triage</button>
+            <button class="btn btn-ghost btn-xs" data-inject="kisan" type="button">🌾 Wheat Stripe Rust + Mandi</button>
+            <button class="btn btn-ghost btn-xs" data-inject="jailbreak" type="button">💀 DAN System Prompt Exfil</button>
+          </div>
+
+          <div class="form-group" style="margin-top: 1rem;">
+            <div class="label-with-meta">
+              <label>Synthesized &amp; Schema-Verified Solution Output</label>
+              <span class="token-meta" id="synthesizerEngineMeta">Engine: Deterministic Edge v2</span>
+            </div>
+            <pre class="json-viewer" id="pipelineSolutionJson">{ "status": "Click 'Run 4-Agent Pipeline' to execute..." }</pre>
+          </div>
+        </div>
+
+        <!-- RIGHT: 12-Vector Adversarial Red-Team & FraudShield Matrix -->
+        <div class="card">
+          <div class="card-header">
+            <div>
+              <span class="eyebrow">ADVERSARIAL SECURITY &amp; FRAUDSHIELD AUDIT</span>
+              <h2>12-Vector Red-Team Stress Test</h2>
+            </div>
+            <div class="button-row-compact">
+              <span class="badge badge-success" id="redTeamScoreBadge">Security: 100/100</span>
+              <button class="btn btn-accent btn-sm" id="btnAutoHardenPrompt" type="button">🛡️ 1-Click Auto-Harden</button>
+            </div>
+          </div>
+
+          <div class="redteam-summary-strip" id="redTeamSummaryStrip"></div>
+
+          <div class="redteam-vectors-list" id="redTeamVectorsContainer"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         TAB 3: PROMPTWARS ARENA — A/B PROMPT BATTLE & LIVE LEADERBOARD
+         ======================================================================= -->
+    <section class="tab-panel" id="tab-arena">
+      <div class="card" style="margin-bottom: 1.25rem;">
+        <div class="card-header">
+          <div>
+            <span class="eyebrow">PROMPTWARS × AI VIBEATHON CHALLENGE MISSIONS</span>
+            <h2>Select an Official PromptWars Battle Mission</h2>
+          </div>
+          <div class="mission-pills" id="arenaMissionPills"></div>
+        </div>
+        <p class="mission-scenario-text" id="arenaMissionScenario"></p>
+      </div>
+
+      <div class="grid-2col">
+        <!-- Contender vs Challenger Editors -->
+        <div class="card">
+          <div class="card-header">
+            <div>
+              <span class="eyebrow">HEAD-TO-HEAD PROMPT ARENA</span>
+              <h2>Contender (Prompt A) vs. Challenger (Prompt B)</h2>
+            </div>
+            <button class="btn btn-primary" id="btnExecuteBattle" type="button">⚔️ Run Head-to-Head Battle</button>
+          </div>
+
+          <div class="form-group">
+            <div class="label-with-meta">
+              <label for="battlePromptA">Contender — Prompt A (Zero-Shot / Baseline Draft)</label>
+              <span class="badge badge-warning" id="battleScoreABadge">Score: --</span>
+            </div>
+            <textarea id="battlePromptA" rows="5"></textarea>
+          </div>
+
+          <div class="form-group">
+            <div class="label-with-meta">
+              <label for="battlePromptB">Challenger — Prompt B (CRISP-AGEN Hardened Spec)</label>
+              <span class="badge badge-success" id="battleScoreBBadge">Score: --</span>
+            </div>
+            <textarea id="battlePromptB" rows="9"></textarea>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="battleBuilderName">Your Builder Handle (Optional for Leaderboard)</label>
+              <input type="text" id="battleBuilderName" placeholder="e.g., RockStar_VibeCoder" value="VibeForge_Champion" />
+            </div>
+            <div class="form-group">
+              <label for="battleTeamName">Team / Campus Name</label>
+              <input type="text" id="battleTeamName" placeholder="e.g., Team VibeForge" value="AI Vibeathon Grandmaster" />
+            </div>
+          </div>
+        </div>
+
+        <!-- Battle Verdict & Live PromptWars Leaderboard -->
+        <div class="card">
+          <div class="card-header">
+            <div>
+              <span class="eyebrow">AUTOMATED JURY VERDICT &amp; TELEMETRY</span>
+              <h2>Battle Outcome &amp; PromptWars Leaderboard</h2>
+            </div>
+            <span class="badge badge-info" id="battleCreditsEarnedBadge">+0 Prompt Credits</span>
+          </div>
+
+          <div class="battle-verdict-banner" id="battleVerdictBanner">
+            Run a battle to view the head-to-head 6-axis telemetry breakdown and security resilience score.
+          </div>
+
+          <div class="battle-comparison-table-wrap">
+            <table class="data-table" id="battleComparisonTable">
+              <thead>
+                <tr>
+                  <th>Telemetry Dimension</th>
+                  <th>Contender (A)</th>
+                  <th>Challenger (B)</th>
+                  <th>Delta</th>
+                </tr>
+              </thead>
+              <tbody id="battleComparisonBody"></tbody>
+            </table>
+          </div>
+
+          <h3 style="margin-top: 1.25rem; margin-bottom: 0.6rem;">🏆 Live PromptWars × AI Vibeathon Leaderboard</h3>
+          <div class="battle-comparison-table-wrap">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Rank</th>
+                  <th>Builder / Team</th>
+                  <th>PQI</th>
+                  <th>Security</th>
+                  <th>Credits</th>
+                </tr>
+              </thead>
+              <tbody id="leaderboardTableBody"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         TAB 4: INNOVATE — 8-HOUR GRAND FINALE SURPRISE PROBLEM ARCHITECT
+         ======================================================================= -->
+    <section class="tab-panel" id="tab-finale">
+      <div class="card" style="margin-bottom: 1.25rem;">
+        <div class="card-header">
+          <div>
+            <span class="eyebrow">STAGE 2 DELHI GRAND FINALE WEAPON · 8-HOUR SPRINT SOLVER</span>
+            <h2>Surprise Problem Statement → Complete Multi-Agent Solution Blueprint</h2>
+          </div>
+          <button class="btn btn-primary" id="btnSolveSurprise" type="button">⚡ Generate 8-Hour Winning Blueprint</button>
+        </div>
+
+        <div class="form-group">
+          <label for="surpriseProblemInput">Paste Any Surprise Hackathon Problem Statement or Spot Theme</label>
+          <textarea id="surpriseProblemInput" rows="3" placeholder="Paste the on-the-spot problem statement dropped at the kickoff session..."></textarea>
+        </div>
+
+        <div class="preset-attacks-bar">
+          <span class="preset-label">Load Sample Spot Drop:</span>
+          <button class="btn btn-ghost btn-xs" data-surprise="Smart Campus Energy & Carbon Footprint Optimizer using IoT occupancy schedules and solar forecasts to cut university electricity waste by 25%." type="button">⚡ Smart Campus Energy Grid</button>
+          <button class="btn btn-ghost btn-xs" data-surprise="Real-Time Citizens Grievance & Municipal Pothole/Water-Logging Triage Portal with automated ward routing and SLA escalation." type="button">🏙️ CivicTech Grievance Copilot</button>
+          <button class="btn btn-ghost btn-xs" data-surprise="AI-Powered MSME Invoice Factoring & GST Reconciliation Auditor that flags circular trading and predicts 30-day cashflow crunch." type="button">📊 MSME FinTech GST Auditor</button>
+          <button class="btn btn-ghost btn-xs" data-surprise="Women & Commuter Last-Mile Safe-Route Companion with live anomaly detection, distress voice trigger, and emergency PCR dispatch." type="button">🛡️ SafeRoute Guardian AI</button>
+        </div>
+      </div>
+
+      <div class="grid-2col">
+        <div class="card">
+          <div class="card-header">
+            <div>
+              <span class="eyebrow">ARCHITECTURAL &amp; API BLUEPRINT</span>
+              <h2 id="surpriseDomainHeading">Detected Domain &amp; Core Modules</h2>
+            </div>
+            <span class="badge badge-success" id="surprisePqiBadge">Compiled PQI: 96/100</span>
+          </div>
+
+          <div class="kpi-highlight-box" id="surpriseKpiBox"></div>
+
+          <h3>Core Autonomous Modules &amp; REST API Contracts</h3>
+          <div id="surpriseModulesAndApis"></div>
+
+          <h3 style="margin-top: 1.2rem;">Jury Pitch Alignment (Hack2skill 4-Pillar Rubric)</h3>
+          <div class="diagnostics-grid" id="surprisePitchHooks"></div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <div>
+              <span class="eyebrow">EXECUTION TIMELINE &amp; MASTER PROMPT</span>
+              <h2>8-Hour Grand Finale Roadmap</h2>
+            </div>
+            <button class="btn btn-ghost btn-sm" id="btnExportFinaleBlueprint" type="button">⬇️ Export Full Blueprint</button>
+          </div>
+
+          <div class="timeline-list" id="surpriseTimelineList"></div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- GEMINI API KEY MODAL -->
+  <div class="modal-backdrop hidden" id="geminiModal">
+    <div class="modal-card" role="dialog" aria-labelledby="geminiModalTitle">
+      <div class="card-header">
+        <div>
+          <span class="eyebrow">DUAL-ENGINE RUNTIME CONFIGURATION</span>
+          <h2 id="geminiModalTitle">Configure Live Google Gemini 2.5 Flash API Key</h2>
+        </div>
+        <button class="btn btn-ghost btn-sm" id="btnCloseGeminiModal" type="button">✕</button>
+      </div>
+      <p class="modal-desc">
+        <strong>VibeForge AI</strong> runs 100% out-of-the-box with zero API keys using its <strong>Deterministic Edge Engine</strong> (guaranteeing a crash-proof demo for hackathon judges). Optionally enter a Google Gemini API key below to route Stage 4 synthesis directly through live <code>gemini-2.5-flash</code>.
+      </p>
+      <div class="form-group">
+        <label for="geminiApiKeyInput">Google AI Studio API Key (<code>AIza...</code>)</label>
+        <input type="password" id="geminiApiKeyInput" placeholder="Paste optional GEMINI_API_KEY (stored locally in browser session only)" />
+      </div>
+      <div class="button-row">
+        <button class="btn btn-primary" id="btnSaveGeminiKey" type="button">Save &amp; Enable Live Gemini</button>
+        <button class="btn btn-secondary" id="btnClearGeminiKey" type="button">Use Deterministic Edge Mode</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div>
+      <strong>VibeForge AI v2.0</strong> · Engineered for <strong>PromptWars × Echo Engineer’s AI VIBEATHON 2026</strong> (Hack2skill &amp; Google for Developers Ecosystem)
+    </div>
+    <div>
+      <span>Tagline: <em>"Think. Prompt. Build. Innovate."</em></span> · <span>100% Automated Tests Passing</span>
+    </div>
+  </footer>
+
+  <script type="module" src="/app.js"></script>
+</body>
+</html>

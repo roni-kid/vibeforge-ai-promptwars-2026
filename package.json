@@ -1,0 +1,29 @@
+{
+  "name": "vibeforge-ai-promptwars-2026",
+  "version": "2.0.0",
+  "description": "VibeForge AI — Autonomous Multi-Agent Prompt Engineering, Adversarial Red-Teaming & Rapid Solution Studio for PromptWars x Echo Engineer's AI VIBEATHON 2026",
+  "type": "module",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js",
+    "test": "node --test tests/engine.test.js tests/api.test.js"
+  },
+  "keywords": [
+    "promptwars",
+    "ai-vibeathon-2026",
+    "echo-engineers",
+    "hack2skill",
+    "google-antigravity",
+    "prompt-engineering",
+    "multi-agent",
+    "red-teaming",
+    "fraud-shield",
+    "vibe-coding"
+  ],
+  "author": "VibeForge AI Team — PromptWars x AI VIBEATHON 2026",
+  "license": "MIT",
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}
