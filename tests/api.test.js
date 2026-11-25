@@ -127,5 +127,5 @@ test('GET / serves the interactive HTML studio dashboard', async () => {
   assert.equal(res.status, 200);
   const html = await res.text();
   assert.ok(html.includes('VibeForge AI'));
-  assert.ok(html.includes('PromptWars × Echo Engineers AI VIBEATHON 2026'));
+  assert.ok(html.includes('PromptWars × AI VIBEATHON 2026'));
 });
